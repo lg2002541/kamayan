@@ -25,6 +25,9 @@ public class ArrayList {
             "The add(Object) method should append the argument to the end of",
             "this ArrayList and increase the size by 1. The return value must",
             "be this."
+            // array.get(array.length+1);
+            // array[array.length+1] = value;
+            // array.size += 1;
         );
     }
 

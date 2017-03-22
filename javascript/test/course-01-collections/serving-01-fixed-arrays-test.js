@@ -17,13 +17,13 @@
 // further servings to implement other familiar data sets.
 suite("FixedArray");
 
-test("a fixed array has a size specified when it is created", function() {
+test.skip("a fixed array has a size specified when it is created", function() {
     assert.equal(new FixedArray(0).size(), __);
     assert.equal(new FixedArray(1).size(), __);
     assert.equal(new FixedArray(42).size(), __);
 });
 
-test("values can be set and retrieved", function() {
+test.skip("values can be set and retrieved", function() {
     var array = new FixedArray(3);
 
     array.set(0, 1);
@@ -35,14 +35,14 @@ test("values can be set and retrieved", function() {
     assert.equal(array.get(2), __);
 });
 
-test("initial values are null", function() {
+test.skip("initial values are null", function() {
     var array = new FixedArray(3);
     assert.equal(array.get(0), __);
     assert.equal(array.get(1), __);
     assert.equal(array.get(2), __);
 });
 
-test("getting and setting at an index must be within the bounds of the initial size", function() {
+test.skip("getting and setting at an index must be within the bounds of the initial size", function() {
     var array = new FixedArray(5);
     assert.throws(() => { array.get(-1); }, ___);
     assert.throws(() => { array.get(5); }, ___);
