@@ -34,60 +34,87 @@ public class LinkedList {
     }
 
     public LinkedList prepend(Object value) {
-        throw Kamayan.todo(
-            "The prepend(Object) method should prepend the argument to the",
-            "beginning of this LinkedList and increase the size by 1. The",
-            "return value must be this."
-        );
+        // Node tempNode = new Node (value);
+        // tempNode.child = head;
+        // head = tempNode;
+        head = new Node (value, head);
+        size++;
+        return this;
     }
 
     public LinkedList add(Object value) {
-        throw Kamayan.todo(
-            "The add(Object) method should append the argument to the end of",
-            "this LinkedList and increase the size by 1. The return value must",
-            "be this."
-        );
+            Node tempNode = new Node (value);
+            if (head == null) {
+                head = tempNode;
+            } else {
+                Node currentNode = head;
+                while (currentNode.child != null) {
+                    currentNode = currentNode.child;
+                }
+                currentNode.child = tempNode;
+            }
+            size++;
+            return this;
     }
 
     public Object delete(int index) {
-        throw Kamayan.todo(
-            "The delete(int) method should delete the value at the provided",
-            "index and return it. The size should be 1 less than it was before",
-            "this method was called. The index must be within the bounds of the",
-            "LinkedList, or an IndexOutOfBoundsException should be thrown."
-        );
+            checkBounds(index);
+            if (head == null) {
+                return null;
+            }
+            if (size == 1) {
+                size -=1;
+                Node temp = head;
+                head = null;
+                return temp.value;
+            }
+
+            Node returnNode;
+            Node currentNode = head;
+            for ( int i = 0; i<index; i++ ) {
+                currentNode = currentNode.child;
+            }
+            if ( index == 0) {
+                currentNode = currentNode.child;
+                head =
+            }
+            Node tempNode = currentNode;
+            if (currentNode.child != null){
+                currentNode = currentNode.child;
+                returnNode = currentNode;
+                tempNode.child = currentNode.child;
+            }
+            size-=1;
+            return returnNode.value;
     }
 
     public Object get(int index) {
-        throw Kamayan.todo(
-            "The get(int) method should retrieve the value at the given index.",
-            "The index must be within the bounds of the LinkedList, or an",
-            "IndexOutOfBoundsException should be thrown."
-        );
+        checkBounds(index);
+        Node currentNode = head;
+        for(int i = 0; i < index; i++) {
+            currentNode = currentNode.child;
+        }
+        return currentNode.value;
     }
 
     public Object set(int index, Object value) {
-        throw Kamayan.todo(
-            "The set(int, Object) method should set the value at the index",
-            "defined in the first argument such that list.get(index) will",
-            "return the second argument.",
-            "",
-            "If the index is negative, an IndexOutOfBoundsException should be",
-            "thrown.",
-            "",
-            "If the index is bigger than the current size of the linked list,",
-            "the links should be adjusted to fit the new index. All indexes",
-            "between the former last element and the new index should be",
-            "initialized with null.",
-            "",
-            "The size after this method is called depends on the index",
-            "provided. An existing index would not affect the size, but an",
-            "index greater than the last index will add the difference to the",
-            "size.",
-            "",
-            "This method should return the value that was previously in the",
-            "given index, or null if that does not apply."
-        );
+        checkLowerBound(index);
+        Node currentNode = head;
+        if ( index < size ){
+             for(int i = 0; i < index; i++) {
+                 currentNode = currentNode.child;
+             }
+             Node tempNode = currentNode;
+             Object output = tempNode.value;
+             currentNode.value = value;
+             return output;
+        } else {
+            for (int i = size; i < index; i++) {
+                this.add(null);
+            }
+            this.add(value);
+            return null;
+        }
     }
 
     private void checkBounds(int index) {
