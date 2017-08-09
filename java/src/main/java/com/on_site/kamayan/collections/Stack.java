@@ -23,34 +23,46 @@ public class Stack {
     }
 
     public Stack push(Object value) {
-        throw Kamayan.todo(
-            "The push(Object) method should add the argument to the end of the",
-            "stack, which should increase the size by 1. The return value must",
-            "be this. If the maxSize was specified when constructing the Stack",
-            "(that is, it is not null), then a StackOverflowException should be",
-            "raised before adding the value if the stack is already at the",
-            "capacity."
-        );
+            // "The push(Object) method should add the argument to the end of the",
+            // "stack, which should increase the size by 1. The return value must",
+            // "be this. If the maxSize was specified when constructing the Stack",
+            // "(that is, it is not null), then a StackOverflowException should be",
+            // "raised before adding the value if the stack is already at the",
+            // "capacity."
+
+        // try {
+        //     this.list.add(value);
+        // } catch (StackOverflowException e){
+        //     System.out.println("Caught Error"+ e);
+        // };
+
+        if ( this.maxSize != null && this.maxSize <= list.size()){
+            throw new StackOverflowException();
+        } else{
+            list.add(value);
+            return this;
+        }
+
     }
 
     public Object pop() {
-        throw Kamayan.todo(
-            "The pop() method should remove and return the last value in the",
-            "stack. An IndexOutOfBoundsException should be raised if the Stack",
-            "is empty."
-        );
+            // "The pop() method should remove and return the last value in the",
+            // "stack. An IndexOutOfBoundsException should be raised if the Stack",
+            // "is empty."
+            Object returnVal = list.last();
+            list.deleteLast();
+            return returnVal;
     }
 
     public boolean isEmpty() {
-        throw Kamayan.todo(
-            "The isEmpty() method should return whether or not the size is 0."
-        );
+            // "The isEmpty() method should return whether or not the size is 0."
+            return list.size() == 0 ? true:false;
     }
 
     public Object peek() {
-        throw Kamayan.todo(
-            "The peek() method should return the last value in the stack,",
-            "without removing any elements in the stack."
-        );
+            // "The peek() method should return the last value in the stack,",
+            // "without removing any elements in the stack."
+        return list.last();
+
     }
 }
