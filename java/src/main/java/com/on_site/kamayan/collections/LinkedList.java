@@ -76,7 +76,6 @@ public class LinkedList {
             }
             if ( index == 0) {
                 currentNode = currentNode.child;
-                head =
             }
             Node tempNode = currentNode;
             if (currentNode.child != null){
@@ -85,7 +84,7 @@ public class LinkedList {
                 tempNode.child = currentNode.child;
             }
             size-=1;
-            return returnNode.value;
+            return 1;//returnNode.value;
     }
 
     public Object get(int index) {
