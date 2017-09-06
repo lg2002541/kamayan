@@ -39,13 +39,26 @@ public class Hash {
         if (key == null) {
             throw new NullPointerException("Error: Key cannot be Null!");
         }
+        int index = key.hashCode() % hash.length;
+        Entry entry = new Entry(key, value);
+        hash[index] = new DoublyLinkedList(); //
+        hash[index].add(entry);
+
         size++;
         return this;
     }
 
     public Object get(Object key) {
-        throw Kamayan.todo(
-        );
+        int index = key.hashCode() % hash.length;
+        DoublyLinkedList list = hash[index];
+        if (list == null) {
+            throw new MissingKeyException("Error: Key cannot be found: " + key);
+        }
+        Entry result = (Entry) list.first();
+        if (result.getKey() == key) {
+            return result.getValue();
+        }
+        return 1; //
     }
 
     public boolean contains(Object key) {

@@ -67,14 +67,14 @@ public class Serving_07_HashesTest extends TestCase {
         assertEquals(2, hash.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void getWithMissingKeyThrowsException() throws Exception {
         Hash hash = new Hash();
         assertThrows(MissingKeyException.class, () -> hash.get("abc"));
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void getWithExistingKeyReturnsTheValueStored() throws Exception {
         Hash hash = new Hash().put("abc", 42).put("xyz", 123);
@@ -82,7 +82,7 @@ public class Serving_07_HashesTest extends TestCase {
         assertEquals(123, hash.get("xyz"));
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void getAfterPutReturnsNewValue() throws Exception {
         Hash hash = new Hash().put("abc", 42);
@@ -91,7 +91,7 @@ public class Serving_07_HashesTest extends TestCase {
         assertEquals(123, hash.get("abc"));
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void putWithSameKeyDoesntIncreaseSize() throws Exception {
         Hash hash = new Hash();
