@@ -300,6 +300,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertThrows(IndexOutOfBoundsException.class, () -> { list.delete(42); });
     }
 
+    @Ignore
     @Test
     public void deleteRemovesTheElement() {
         LinkedList list = new LinkedList().add(1).add(2).add(3);
@@ -308,6 +309,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertEquals(3, list.get(1));
     }
 
+    @Ignore
     @Test
     public void deleteReturnsTheElementAtTheIndex() {
         LinkedList list = new LinkedList().add(1).add(2).add(3);
