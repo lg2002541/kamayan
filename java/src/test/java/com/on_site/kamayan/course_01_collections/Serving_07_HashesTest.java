@@ -30,7 +30,7 @@ public class Serving_07_HashesTest extends TestCase {
         }
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void putReturnsThisSoItCanBeChained() throws Exception {
         Hash hash = new Hash();
@@ -38,7 +38,7 @@ public class Serving_07_HashesTest extends TestCase {
         assertEquals(hash, hash.put("xyz", 123));
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void putIncreasesSize() throws Exception {
         Hash hash = new Hash();
@@ -49,7 +49,7 @@ public class Serving_07_HashesTest extends TestCase {
         assertEquals(2, hash.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void putWithNullKeyThrowsAnException() throws Exception {
         Hash hash = new Hash();
@@ -57,7 +57,7 @@ public class Serving_07_HashesTest extends TestCase {
         assertEquals(0, hash.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void putWithDifferentKeyButSameHashCodeIncreasesSize() throws Exception {
         Hash hash = new Hash();
