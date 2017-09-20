@@ -33,18 +33,25 @@ public class Hash {
         return size;
     }
 
+    // public boolean addEntry( entry ) {
+    //     return key == otherKey;
+    // }
+
     public Hash put(Object key, Object value) {
-        // throw Kamayan.todo(
-        // );
         if (key == null) {
             throw new NullPointerException("Error: Key cannot be Null!");
         }
         int index = key.hashCode() % hash.length;
         Entry entry = new Entry(key, value);
-        hash[index] = new DoublyLinkedList(); //
-        hash[index].add(entry);
-
-        size++;
+        if (hash[index] == null) {
+            hash[index] = new DoublyLinkedList();
+            this.size++;
+        }
+        //search Key in the linked link for the key, increase size if key is not found
+        // hash[index].each((element) -> (if element.getKey() == ) )
+        // list.each( (element) -> list.addEntry(entry);
+        DoublylinkedList list = hash[index];
+        list.add(entry);
         return this;
     }
 
@@ -62,7 +69,17 @@ public class Hash {
     }
 
     public boolean contains(Object key) {
-        throw Kamayan.todo(
-        );
+        int index = key.hashCode() % hash.length;
+        DoublyLinkedList list = hash[index];
+        if (list == null) {
+            return false;
+        }
+        Node currentNode = list;
+        while (currentNode != null){
+            if (currentNode.getKey() == key) {
+                return true;
+            }
+            currentNode = currentNode.child;
+        }
     }
 }

@@ -90,7 +90,7 @@ public class Serving_07_HashesTest extends TestCase {
         hash.put("abc", 123);
         assertEquals(123, hash.get("abc"));
     }
-
+    // This is where we stopped pairing with MVS
     // @Ignore("Remove this line to run this test")
     @Test
     public void putWithSameKeyDoesntIncreaseSize() throws Exception {
