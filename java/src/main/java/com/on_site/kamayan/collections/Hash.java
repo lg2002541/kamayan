@@ -37,13 +37,26 @@ public class Hash {
         if(key == null) {
             throw new NullPointerException("Error: Key cannot be null!");
         }
+
+        int index = key.hashCode() % hash.length;
+        if (hash[index] == null) {
+            hash[index] = new DoublyLinkedList();
+        }
+        DoublyLinkedList list = hash[index];
+        Entry entry = new Entry( key, value);
+        list.add(entry);
         size++;
         return this;
     }
 
     public Object get(Object key) {
-        throw Kamayan.todo(
-        );
+        int index = key.hashCode() % hash.length;
+        DoublyLinkedList list = hash[index];
+        if (list == null) {
+            throw new MissingKeyException("Error: cannot find key!");
+        }
+        Entry entry = (Entry) list.first();
+        return entry.getValue();
     }
 
     public boolean contains(Object key) {
